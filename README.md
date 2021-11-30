@@ -6,7 +6,8 @@ Create a Lambda function that send messages to Dead-letter queue of SQS
 
 - Create Standard SQS
 - Create Lambda Function
-- Give "SendMessage" permission to Lambda function
+- Give "SendMessage" and "GetQueueUrl" permission to Lambda function
+![Lambda - Permissions](docs/images/lambda_permissions.png)
 - Configure Dead-letter queue service for Lambda function
   - **Using AWS Console:** Go to "Configuration" -> "Asynchronous Invocation" -> "Edit" -> Select "Amazon SQS" -> Select created SQS
   - Using AWS CLI: Run `% aws lambda update-function-configuration --function-name myDLQ --dead-letter-config TargetArn=arn:aws:sqs:us-east-1:617964620752:myDLQ`
@@ -65,14 +66,16 @@ Create a Lambda function that send messages to Dead-letter queue of SQS
 - To configure DLQ for Lambda, it should be granted "sqs:SendMessage" permission
 
 ## Resources
+- [[2016-12] AWS Lambda Supports Dead Letter Queues](https://aws.amazon.com/about-aws/whats-new/2016/12/aws-lambda-supports-dead-letter-queues/)
+- [[Discussion] Is there any way to explicitly send event message to dead letter queue from inside AWS lambda function on certain condition?](https://stackoverflow.com/questions/49414030/is-there-any-way-to-explicitly-send-event-message-to-dead-letter-queue-from-insi)
+- [[Video] Failure Handling Using a Lambda DLQ (Dead Letter Queue)](https://www.youtube.com/watch?v=nqQh2KmHiLY)
+- [[Docs] AWS Lambda > Developer Guide > Async Invocation > Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq)
+- [[Docs] [SDK] Amazon SQS - Example sending and receiving messages](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/sqs-example-sending-receiving-msgs.html)
+- [[Docs] [SDK] Amazon SQS - SQS.Client.send_message](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message)
+- [[Docs] [SDK] Using dead-letter queues in Amazon SQS](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/sqs-example-dead-letter-queue.html)
 - [[Article] Using Amazon SQS dead-letter queues to replay messages](https://aws.amazon.com/blogs/compute/using-amazon-sqs-dead-letter-queues-to-replay-messages/)
 - [[Article] Calling an AWS Lambda function from another Lambda function](https://www.sqlshack.com/calling-an-aws-lambda-function-from-another-lambda-function/)
 - [[Docs] [CLI] AWS Lambda > Developer Guide > DeadLetterConfig](https://docs.aws.amazon.com/lambda/latest/dg/API_DeadLetterConfig.html)
-- [[Docs] [SDK] Using dead-letter queues in Amazon SQS](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/sqs-example-dead-letter-queue.html)
-- [[Video] Failure Handling Using a Lambda DLQ (Dead Letter Queue)](https://www.youtube.com/watch?v=nqQh2KmHiLY)
-- [[Discussion] Is there any way to explicitly send event message to dead letter queue from inside AWS lambda function on certain condition?](https://stackoverflow.com/questions/49414030/is-there-any-way-to-explicitly-send-event-message-to-dead-letter-queue-from-insi)
 - [[Docs] Amazon SQS dead-letter queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html)
-- [[Docs] AWS Lambda > Developer Guide > Async Invocation > Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq)
-- [[2016-12] AWS Lambda Supports Dead Letter Queues](https://aws.amazon.com/about-aws/whats-new/2016/12/aws-lambda-supports-dead-letter-queues/)
 - [[Discussion] Error when sending message from lambda to DLQ](https://stackoverflow.com/questions/64325934/error-when-sending-message-from-lambda-to-dlq)
 - [[Docs] Amazon SQS > Developer Guide > Amazon SQS dead-letter queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html)
