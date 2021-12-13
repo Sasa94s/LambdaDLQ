@@ -10,6 +10,8 @@ Create a Lambda function that send messages to Dead-letter queue of SQS
 ![Lambda - Permissions](docs/images/lambda_permissions.png)
 - Configure Dead-letter queue service for Lambda function
   - **Using AWS Console:** Go to "Configuration" -> "Asynchronous Invocation" -> "Edit" -> Select "Amazon SQS" -> Select created SQS
+  ![Lambda - Async Invocation](docs/images/lambda_asyncinvoc1.png)
+  ![Lambda - Async Invocation](docs/images/lambda_asyncinvoc2.png)
   - Using AWS CLI: Run `% aws lambda update-function-configuration --function-name myDLQ --dead-letter-config TargetArn=arn:aws:sqs:us-east-1:617964620752:myDLQ`
     ```shell
     {
